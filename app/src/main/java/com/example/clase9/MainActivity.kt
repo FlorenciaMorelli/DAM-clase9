@@ -10,10 +10,12 @@ import com.example.clase9.databinding.ActivityMainBinding
 import com.example.clase9.model.Student
 import com.example.clase9.model.StudentRepository
 import com.example.clase9.view.StudentAdapter
+import com.example.clase9.viewmodel.StudentViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var studentViewModel: StudentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -21,7 +23,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        initRecycler(StudentRepository.students)
+        studentViewModel = StudentViewModel()
+        studentViewModel.students.observe(this){ student ->
+            initRecycler(StudentRepository.students)
+        }
 
     }
 

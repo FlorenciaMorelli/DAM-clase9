@@ -30,6 +30,4 @@ class StudentRepository {
             Student(25, "Mía", "Bravo", "54567890", "Goya", "3450")
         )
     }
-
-
 }
